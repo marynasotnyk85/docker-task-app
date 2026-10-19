@@ -22,7 +22,7 @@ console.log(pipelineMessage);
           <p>
             Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
           </p>
-          <h1>Docker application — Version 2</h1>
+          <h1>Docker application — Version 3</h1>
         </div>
         <button
           type="button"
