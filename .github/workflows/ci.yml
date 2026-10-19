@@ -31,8 +31,9 @@ jobs:
         run: npm run lint
 
       - name: Build Docker image
+        run: docker build -t docker-task-app:ci .
         
-              - name: Start container
+      - name: Start container
         run: |
           docker run -d \
             --name smoke-test \
