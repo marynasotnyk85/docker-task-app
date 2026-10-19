@@ -6,6 +6,8 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  const pipelineMessage: string = 123;
+console.log(pipelineMessage);
 
   return (
     <>
