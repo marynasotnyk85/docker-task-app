@@ -6,7 +6,7 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-  const pipelineMessage: string = 123;
+  const pipelineMessage: string = 'Pipeline practice';
 console.log(pipelineMessage);
 
   return (
