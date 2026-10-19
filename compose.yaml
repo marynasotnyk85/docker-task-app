@@ -1,0 +1,5 @@
+services:
+  web:
+    image: ghcr.io/marynasotnyk85/docker-task-app:latest
+    ports:
+      - "127.0.0.1:8082:80"
