@@ -31,7 +31,33 @@ jobs:
         run: npm run lint
 
       - name: Build Docker image
-        run: docker build -t docker-task-app:ci .
+        
+              - name: Start container
+        run: |
+          docker run -d \
+            --name smoke-test \
+            -p 127.0.0.1:8080:80 \
+            docker-task-app:ci
+
+      - name: Check website responds
+        run: |
+          curl --fail --show-error \
+            --retry 10 \
+            --retry-delay 1 \
+            --retry-connrefused \
+            --max-time 5 \
+            http://127.0.0.1:8080/ \
+            -o /tmp/index.html
+
+          grep -q '<div id="root">' /tmp/index.html
+
+      - name: Show container logs
+        if: always()
+        run: docker logs smoke-test
+
+      - name: Remove test container
+        if: always()
+        run: docker rm -f smoke-test
 
   publish:
     needs: check-and-build
