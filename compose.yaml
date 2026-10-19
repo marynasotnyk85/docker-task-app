@@ -1,5 +1,5 @@
 services:
   web:
-    image: ghcr.io/marynasotnyk85/docker-task-app:latest
+    image: ghcr.io/marynasotnyk85/docker-task-app:${IMAGE_TAG:-latest}
     ports:
       - "127.0.0.1:8082:80"
